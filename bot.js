@@ -1232,17 +1232,6 @@ client.on("guildMemberAdd", member => {
 
 
 
-client.on('ready',async () => {
-setInterval(function(){
-var currentTime = new Date(),
-Year  = currentTime.getFullYear(),
-Month = currentTime.getMonth() + 1,
-day   = currentTime.getDate() 
-
-client.channels.find('id', '486969675872206880').setName(`『 التاريخ ↩ ${Year}-${Month}-${day} 』`)
-}, 5000); 
-
-});
 
 
 var ss = 0;
