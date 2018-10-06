@@ -1261,16 +1261,23 @@ client.on('voiceStateUpdate', (o,n) => {
         })
     }
 })
-client.on("ready", () => {
-    client.guilds.get("455197670169116682").members.forEach(m => {
-        if (m.voiceChannel) {
-            ss+=1
-        };
-        client.channels.get("495599835630534658").edit({
-            name : "Voice Online : [" + ss+ "]"
-        })
-    });
-    client.user.setGame("WestCostBoT +help شكرا ", "https://twitch.tv/©");
+client.on('ready', function(){
+    client.user.setStatus("dnd");
+    var ms = 100000 ;
+    var setGame = [`+help Servers ${client.guilds.size} `,`h!inv Users ${client.users.size}`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/kokoseda`);
+    }, ms);100000
+
 });
 
 
